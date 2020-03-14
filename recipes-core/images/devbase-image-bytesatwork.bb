@@ -16,6 +16,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 IMAGE_INSTALL += "\
 	packagegroup-core-boot \
 	packagegroup-devbase-bytesatwork \
+	${@bb.utils.contains('DISTRO_FEATURES', 'optee', 'packagegroup-optee-core', '', d)} \
+	${@bb.utils.contains('DISTRO_FEATURES', 'optee', 'packagegroup-optee-test', '', d)} \
 	"
 
 IMAGE_LINGUAS = " "
